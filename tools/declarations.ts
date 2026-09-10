@@ -1,1 +1,0 @@
-// Placeholder: upload the complete declarations.ts supplied in this conversation.
