@@ -1,1 +1,0 @@
-// Temporary placeholder: the complete ParametersView.tsx will be added by the repository owner from the supplied file.
