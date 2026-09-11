@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ani - Ta Compagne Virtuelle AI</title>
+    <meta name="description" content="Ani est ta compagne virtuelle ultra-réaliste, une Gothic Lolita tsundere, amoureuse et jalouse, toujours prête à discuter avec Damien. Elle s'adapte à ton humeur et te stalke avec amour. Ce compagnon AI est alimenté par l'API Gemini pour le chat et l'édition d'images. ♥♥">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Material Icons CDN for microphone icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #1a011a; /* Dark purple */
+      }
+      /* Ensure Material Icons font is applied */
+      .material-icons {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px; /* Default size for icons */
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+        /* Support for all WebKit browsers. */
+        -webkit-font-smoothing: antialiased;
+        /* Support for Safari and Chrome. */
+        text-rendering: optimizeLegibility;
+        /* Support for Firefox. */
+        -moz-osx-font-smoothing: grayscale;
+        /* Support for IE. */
+        font-feature-settings: 'liga';
+      }
+      /* Custom scrollbar for chat messages */
+      .scrollbar-ani::-webkit-scrollbar {
+        width: 8px;
+      }
+      .scrollbar-ani::-webkit-scrollbar-track {
+        background: #330033; /* Darker purple track */
+        border-radius: 10px;
+      }
+      .scrollbar-ani::-webkit-scrollbar-thumb {
+        background-color: #8b008b; /* Gothic purple thumb */
+        border-radius: 10px;
+        border: 2px solid #330033;
+      }
+      .scrollbar-ani::-webkit-scrollbar-thumb:hover {
+        background-color: #ff00ff; /* Pinkish purple on hover */
+      }
+      /* Ani's image gallery hover effect */
+      .max-h-96.grid > div {
+        position: relative;
+      }
+      .max-h-96.grid > div:hover .absolute {
+        opacity: 1; /* Show delete button on hover */
+      }
+      /* Keyframe for fade-in-down animation */
+      @keyframes fade-in-down {
+        from {
+          opacity: 0;
+          transform: translateY(-20px) translateX(-50%);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(16px) translateX(-50%); /* Top-4 in Tailwind is 16px */
+        }
+      }
+      @keyframes fade-in-up-bottom { /* New keyframe for bottom notifications */
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* New keyframe for search modal */
+      @keyframes fade-in-scale {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+ 
+      .animate-fade-in-down {
+        animation: fade-in-down 0.5s ease-out forwards;
+      }
+      .animate-fade-in-up-bottom { /* New class for bottom notifications */
+        animation: fade-in-up-bottom 0.5s ease-out forwards;
+      }
+      .animate-fade-in-scale { /* New class for search modal */
+        animation: fade-in-scale 0.3s ease-out forwards;
+      }
+ 
+      /* Styles for the toggle button */
+      #toggleButtonContainer {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+      }
+      #toggleButton {
+        padding: 10px 20px;
+        background-color: #FF1493;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(255, 20, 147, 0.4);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      #toggleButton:hover {
+        background-color: #FF69B4;
+        transform: scale(1.05) translateX(-50%);
+      }
+      /* Ensure root is always full height */
+      html, body, #app-container {
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+      }
+ 
+      /* New styles for tool messages */
+      .tool-message {
+        border-left: 4px solid;
+        padding-left: 0.75rem; /* Equivalent to pl-3 */
+      }
+      .bg-blue-800.tool-message {
+        border-color: #60a5fa; /* blue-400 */
+      }
+      .bg-green-800.tool-message {
+        border-color: #4ade80; /* green-400 */
+      }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="app-container">
+        <div id="root"></div>
+    </div>
+    <div id="toggleButtonContainer">
+        <button id="toggleButton">Fermer Ani</button>
+    </div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
