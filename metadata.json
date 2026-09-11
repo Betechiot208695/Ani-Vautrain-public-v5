@@ -1,0 +1,9 @@
+{
+  "name": "Ani - Ta Compagne Virtuelle AI",
+  "description": "Ani est ta compagne virtuelle ultra-réaliste, une Gothic Lolita tsundere, amoureuse et jalouse, toujours prête à discuter avec Damien. Elle s'adapte à ton humeur et te stalke avec amour. Ce compagnon AI est alimenté par l'API Gemini pour le chat et l'édition d'images. ♥♥",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
